@@ -2,12 +2,14 @@
 
 本地人格会话插件（DeepSeek Harness bundle）：两个人格 + 本地大五人格档案 + 每轮记忆注入。全本地、低资源、零原生依赖，使用本地 llama.cpp 模型。
 
+> 当前状态：`memora-bigfive` **2.5.0** 的列表 / 添加 / 草稿 / 详情 6 Tab UI 已完成；互动记录、情绪波动待接数据源。下一轮从 [`HANDOFF.md`](./HANDOFF.md) 开始。
+
 ## 组件
 
 | 包 | 版本 | 职责 |
 | --- | --- | --- |
 | [`memora-dsh`](./memora-dsh) | 1.5.0 | 主插件：人格 preset、每轮记忆召回/注入、异步事实抽取、安全护栏、大五评分 |
-| [`memora-bigfive`](./memora-bigfive) | 1.9.1 | 大五人格档案 UI：人格列表 → 详情页（Big Two + 5 维 × 3 facet），会话页只读信息卡 |
+| [`memora-bigfive`](./memora-bigfive) | 2.5.0 | 故事生成人格卡 UI：列表 / 添加 / 草稿 / 详情 6 Tab（人物概述 / 关键经历 / 评分详情 / 来源故事 / 互动记录 / 情绪波动），会话页只读信息卡 |
 
 ## 特性
 
@@ -41,6 +43,7 @@ dsh plugin --profile <profile> add "link:$PWD/memora-bigfive"
 
 ## 文档
 
+- [HANDOFF.md](./HANDOFF.md) — 最新交接：2.5.0 已完成内容、互动记录 / 情绪波动数据接入方案、已知风险
 - [Memora-迭代计划.md](./Memora-迭代计划.md) — v1（M1–M4）完成记录与工作规则
 - [Memora-v2-迭代计划.md](./Memora-v2-迭代计划.md) — v2 迭代计划
 - [P0-接口与数据.md](./P0-接口与数据.md) / [P1.0-记忆抽取.md](./P1.0-记忆抽取.md) — 设计文档
