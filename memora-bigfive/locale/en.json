@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Big Five Sliders",
-    "description": "Five 0–100 sliders above the composer: Neuroticism, Extraversion, Openness, Agreeableness, Conscientiousness."
+    "title": "Persona Cards from Stories",
+    "description": "Settings → Personas: assistant list (show-on-conversation toggle / add / save draft) and six detail tabs (overview / key experiences / scoring / source story / interaction records / emotion). The header holds the bio and read-only tags, the summary uses three fixed segments, and bios are limited to 20 characters."
   }
 }
