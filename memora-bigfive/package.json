@@ -1,0 +1,29 @@
+{
+  "name": "memora-bigfive",
+  "version": "1.9.1",
+  "private": true,
+  "type": "module",
+  "description": "大五人格档案：人格列表 → 详情页（特质栏 Big Two + 5 维×3 facet，展示/编辑两态，仅 μ 可编辑，保存校验）+ 会话页只读信息卡（稳定性·可塑性 + 今天/本周/累计对话次数）。",
+  "files": [
+    "index.js",
+    "client.js",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "memora-dsh",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "description": "Memora 本地人格会话：大五人格档案（设置页 + 侧栏）由 memora-bigfive 管理，无工具、低资源，使用本地 llama.cpp 模型。",
+  "files": [
+    "index.js",
+    "settings.js",
+    "bigfive.js",
+    "persona.js",
+    "memory.js",
+    "extract.js",
+    "runtime.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./settings": "./settings.js",
+    "./runtime": "./runtime.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

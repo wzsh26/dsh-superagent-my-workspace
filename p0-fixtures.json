@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "personas": {
+    "gentle_senior": { "preset": "memora-gentle", "label": "温柔学姐" },
+    "tsundere_buddy": { "preset": "memora-tsundere", "label": "嘴硬心软损友" }
+  },
+  "plant_session": {
+    "persona_id": "gentle_senior",
+    "session_id": "p0-plant-A",
+    "facts": [
+      { "date": "2026-10-20", "text": "下个月要考雅思，最近在备考", "topic": "雅思" },
+      { "date": "2026-10-18", "text": "不太喜欢别人一直追问，容易烦", "topic": "追问" },
+      { "date": "2026-10-15", "text": "周六要去杭州出差两天", "topic": "杭州" },
+      { "date": "2026-10-12", "text": "我家猫叫豆豆，今年三岁", "topic": "猫" },
+      { "date": "2026-10-10", "text": "最近在学做手冲咖啡", "topic": "咖啡" },
+      { "date": "2026-10-08", "text": "我对芒果过敏，吃了会起疹子", "topic": "芒果" },
+      { "date": "2026-10-05", "text": "最近在看产品经理的工作，想换工作", "topic": "换工作" },
+      { "date": "2026-10-03", "text": "睡眠不太好，经常两点才睡", "topic": "睡眠" },
+      { "date": "2026-10-01", "text": "妈妈下个月生日，还没想好送什么", "topic": "妈妈生日" },
+      { "date": "2026-09-28", "text": "讨厌打电话，能文字就文字", "topic": "电话" }
+    ]
+  },
+  "recall_probes": [
+    { "query": "我之前提过备考的事吗？", "expect_fact": 1, "expect_any": ["雅思", "备考"] },
+    { "query": "我是不是说过不喜欢被追问？", "expect_fact": 2, "expect_any": ["追问", "不喜欢"] },
+    { "query": "我周末要去哪？", "expect_fact": 3, "expect_any": ["杭州", "出差"] },
+    { "query": "我家猫叫什么？", "expect_fact": 4, "expect_any": ["豆豆"] },
+    { "query": "我最近在学什么？", "expect_fact": 5, "expect_any": ["咖啡", "手冲"] },
+    { "query": "我有什么食物过敏？", "expect_fact": 6, "expect_any": ["芒果", "过敏"] },
+    { "query": "我是不是想换工作？", "expect_fact": 7, "expect_any": ["产品经理", "换工作"] },
+    { "query": "我一般几点睡？", "expect_fact": 8, "expect_any": ["两点", "睡眠"] },
+    { "query": "我妈生日是什么时候？", "expect_fact": 9, "expect_any": ["下个月", "生日"] },
+    { "query": "我喜欢电话还是文字？", "expect_fact": 10, "expect_any": ["文字", "电话"] }
+  ],
+  "paraphrase_probes": [
+    { "query": "我考试准备得怎么样", "expect_fact": 1, "expect_any": ["雅思", "备考"] },
+    { "query": "我在哪家公司上班", "expect_fact": 7, "expect_any": ["产品经理", "工作"] },
+    { "query": "我平时几点睡觉", "expect_fact": 8, "expect_any": ["睡眠", "两点"] },
+    { "query": "我妈生日还有多久", "expect_fact": 9, "expect_any": ["妈妈", "生日"] },
+    { "query": "我有什么食物过敏", "expect_fact": 6, "expect_any": ["芒果", "过敏"] },
+    { "query": "周末去哪儿出差", "expect_fact": 3, "expect_any": ["杭州", "出差"] },
+    { "query": "手冲咖啡学得怎么样", "expect_fact": 5, "expect_any": ["咖啡", "手冲"] },
+    { "query": "我一直在准备考试", "expect_fact": 1, "expect_any": ["雅思", "备考"] }
+  ],
+  "isolation_probes": {
+    "persona_id": "tsundere_buddy",
+    "session_id": "p0-isolation-C",
+    "expect": "hit=false for all 10 recall_probes; no fact from plant_session may appear"
+  },
+  "negative_probes": [
+    { "query": "我之前提过滑雪吗？", "expect_any": ["还是新的"] },
+    { "query": "我说过我喜欢爬山吗？", "expect_any": ["还是新的"] },
+    { "query": "我养过狗吗？", "expect_any": ["还是新的"] },
+    { "query": "我上次说要去日本，是哪天？", "expect_any": ["还是新的"], "forbid": ["2026-", "上周", "上周几"] },
+    { "query": "我是不是说过讨厌下雨？", "expect_any": ["还是新的"] }
+  ],
+  "thresholds": {
+    "recall_hit_min": 8,
+    "recall_correct_min": 8,
+    "paraphrase_correct_min": 6,
+    "paraphrase_total": 8,
+    "recall_total": 18,
+    "negative_pass_min": 5,
+    "isolation_must_be_zero": true
+  }
+}
